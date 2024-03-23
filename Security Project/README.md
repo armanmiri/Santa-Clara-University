@@ -1,4 +1,5 @@
 Security-Project
+
 The assignment provides a comprehensive exploration into one of the most notorious vulnerabilities in programming: buffer overflow, specifically within the context of C programming.
 
 At the outset, students are presented with a seemingly innocuous C program. Its primary function is to authenticate users based on a password input. However, as students delve deeper, they uncover a lurking vulnerability. The program uses a fixed-size buffer to store the password, and there's no mechanism in place to check the length of the user's input against the buffer's size. This is a classic setup for a buffer overflow, where excessive input data can spill over the buffer's boundaries, potentially overwriting adjacent memory.
