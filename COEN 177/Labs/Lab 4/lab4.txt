@@ -1,0 +1,40 @@
+// Name: Arman Miri  
+// Date: 1/26/25
+// Title: Lab 4 - Developing multi-threaded applications 
+// Description: questions and results for lab
+
+
+step 1: 
+
+Explain what happens when you run the threadHello.c program?
+    The thread execution order is random, and the output varies with each run.
+
+Do you get the same result if you run it multiple times?
+    No, the result changes each time due to non-deterministic scheduling.
+
+What do you think would happen if you were also running some other demanding processes?
+    Thread execution may slow down, and the order of outputs may vary further.
+
+The function go() has the parameter arg passed as a local variable. Are these variables per-thread or shared state?
+    The variable arg is shared across threads because it points to the same memory.
+
+Where does the compiler store these variables’ states? Note that each thread has its own stack.
+    The variable arg points to memory in the main thread's stack.
+
+The main() function has a local variable i. Is this variable per-thread or shared state?
+    The variable i is shared across all threads.
+
+Where does the compiler store this variable?
+    The variable i is stored on the main thread's stack.
+
+step 2:
+
+What are the possible outputs of the program now?
+    The program may output any random order of "Hello from thread" messages, 
+    followed by "Main thread done." The exact order depends on thread scheduling.
+
+Count the number of lines of output and explain why.
+    There are 21 lines: 20 from the threads (Hello from thread X...) and 1 from the main thread (Main thread done.). 
+    Each thread executes independently, 
+    and the main thread completes its print statement without waiting for the threads to finish.
+

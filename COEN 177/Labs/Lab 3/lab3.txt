@@ -1,0 +1,16 @@
+// Name: Arman Miri  
+// Date: 1/19/25
+// Title: Lab3 - Pthreads and inter-process Communication – Pipes
+// Description: questions and results for lab
+
+step 6: 
+
+10 threads are created. 
+Threads print iteration values, but multiple threads sometimes print the same value due to a order of events is not controlled.
+The the order of events is not controlled as the shared variable i is updated in the main thread while threads are being created.
+
+step 7:
+
+The race condition is fixed by using an array (args[]) to assign a unique value to each thread.
+Each thread prints its unique iteration value without duplication or incorrect numbers.
+The fix maintains concurrent execution while ensuring correct behavior.

@@ -1,0 +1,257 @@
+// Name: Arman Miri  
+// Date: 3/1/25
+// Title: Lab 9 - File Performance Measurement
+// Description: Lab Results and Responses
+
+write up:
+
+General I/O Performance Trends (Steps 2–5)
+
+Step 2 & 3: Larger files take longer, and bigger buffers typically reduce overhead (fewer read calls). 
+            Small files may not show large differences, often due to caching.
+
+Step 4: Copying files adds write overhead; again, larger buffers can help by minimizing I/O calls.
+
+Step 5: Increasing thread count may improve performance up to a point, but too many threads can cause disk 
+        contention and slow things down, especially for large files.
+
+output; 
+
+Step 1: 
+
+➜  Lab 9 ls -l file*.bin
+-rw-r--r--  1 arman  staff     100000 Mar  1 10:29 file1.bin
+-rw-r--r--  1 arman  staff    1000000 Mar  1 10:29 file2.bin
+-rw-r--r--  1 arman  staff   10000000 Mar  1 10:29 file3.bin
+-rw-r--r--  1 arman  staff  100000000 Mar  1 10:29 file4.bin
+
+Step 2: 
+
+➜  Lab 9 ./lab9step2.sh       
+Step2 reading file1.bin
+
+real	0m0.183s
+user	0m0.002s
+sys	0m0.003s
+
+Step2 reading file2.bin
+
+real	0m0.006s
+user	0m0.001s
+sys	0m0.003s
+
+Step2 reading file3.bin
+
+real	0m0.007s
+user	0m0.001s
+sys	0m0.004s
+
+Step2 reading file4.bin
+
+real	0m0.019s
+user	0m0.003s
+sys	0m0.015s
+
+Step 3: 
+
+➜  Lab 9 ./lab9step3.sh 
+Step3 file1.bin 100
+
+real	0m0.192s
+user	0m0.002s
+sys	0m0.004s
+
+Step3 file1.bin 1000
+
+real	0m0.003s
+user	0m0.001s
+sys	0m0.002s
+
+Step3 file1.bin 10000
+
+real	0m0.003s
+user	0m0.001s
+sys	0m0.001s
+
+Step3 file1.bin 100000
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.001s
+
+Step3 file2.bin 100
+
+real	0m0.004s
+user	0m0.001s
+sys	0m0.001s
+
+Step3 file2.bin 1000
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.001s
+
+Step3 file2.bin 10000
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.001s
+
+Step3 file2.bin 100000
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.001s
+
+Step3 file3.bin 100
+
+real	0m0.007s
+user	0m0.003s
+sys	0m0.003s
+
+Step3 file3.bin 1000
+
+real	0m0.003s
+user	0m0.001s
+sys	0m0.002s
+
+Step3 file3.bin 10000
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.001s
+
+Step3 file3.bin 100000
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.001s
+
+Step3 file4.bin 100
+
+real	0m0.039s
+user	0m0.022s
+sys	0m0.016s
+
+Step3 file4.bin 1000
+
+real	0m0.017s
+user	0m0.005s
+sys	0m0.012s
+
+Step3 file4.bin 10000
+
+real	0m0.010s
+user	0m0.002s
+sys	0m0.008s
+
+Step3 file4.bin 100000
+
+real	0m0.007s
+user	0m0.000s
+sys	0m0.006s
+
+Step 4:
+
+Lab 9 ./lab9step4.sh
+Step4 file1.bin 100
+
+real	0m0.211s
+user	0m0.002s
+sys	0m0.006s
+
+Step4 file1.bin 1000
+
+real	0m0.004s
+user	0m0.001s
+sys	0m0.002s
+
+Step4 file1.bin 10000
+
+real	0m0.003s
+user	0m0.001s
+sys	0m0.002s
+
+Step4 file1.bin 100000
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.001s
+
+Step4 file2.bin 100
+
+real	0m0.006s
+user	0m0.001s
+sys	0m0.003s
+
+Step4 file2.bin 1000
+
+real	0m0.004s
+user	0m0.001s
+sys	0m0.003s
+
+Step4 file2.bin 10000
+
+real	0m0.004s
+user	0m0.001s
+sys	0m0.003s
+
+Step4 file2.bin 100000
+
+real	0m0.002s
+user	0m0.000s
+sys	0m0.001s
+
+Step4 file3.bin 100
+
+real	0m0.028s
+user	0m0.006s
+sys	0m0.019s
+
+Step4 file3.bin 1000
+
+real	0m0.018s
+user	0m0.002s
+sys	0m0.015s
+
+Step4 file3.bin 10000
+
+real	0m0.012s
+user	0m0.001s
+sys	0m0.011s
+
+Step4 file3.bin 100000
+
+real	0m0.004s
+user	0m0.000s
+sys	0m0.003s
+
+Step4 file4.bin 100
+
+real	0m0.173s
+user	0m0.040s
+sys	0m0.128s
+
+Step4 file4.bin 1000
+
+real	0m0.130s
+user	0m0.010s
+sys	0m0.118s
+
+Step4 file4.bin 10000
+
+real	0m0.107s
+user	0m0.004s
+sys	0m0.100s
+
+Step4 file4.bin 100000
+
+real	0m0.025s
+user	0m0.001s
+sys	0m0.024s
+
+➜  Lab 9 
+
+Step 5:
+
+too long to paste output 

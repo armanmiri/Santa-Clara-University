@@ -1,0 +1,41 @@
+// Name: Arman Miri  
+// Date: 2/2/25
+// Title: Lab 7 - Minix Scheduling
+// Description: This lab modifies the Minix scheduler to occasionally select a lower-priority queue, demonstrating altered scheduling behavior.
+
+Instructions:
+
+1. Used the find and grep command to search for  the pick_proc function in the Minix source code.
+
+    grep -R "pick_proc" /usr/src/
+    
+    find /usr/src -type f -name "proc.c"
+
+2. Once that boot message is found in this case go into the file to edit the message 
+    
+    cd /usr/src/kernels
+
+    vi proc.c
+
+3. Edit the function using the following snippet and vi
+
+   insert teh below inside the for loop for pick_proc
+
+   int random = rand() % 10;
+   if (random <= 2 && q > 2) {
+        q = q % (NR_SCHED_QUEUES - 2) + 2;
+   }
+
+    when done run :wq to save and exit
+
+4. Rebuilt the system using the following commands:
+
+    cd /usr/src
+    
+    make world
+    
+    Verified that the change cuases significant delays in bootup.
+
+5. Use the reboot command and check the new login message
+
+    reboot

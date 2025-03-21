@@ -1,0 +1,16 @@
+// Name: Arman Miri  
+// Date: 2/2/25
+// Title: Lab 5 - Synchronization using semaphores, locks, and condition variables
+// Description: questions and results for lab
+
+NOTE: I had to fix step 1 and 2 as macOS had issues with semaphore and mutexes. I added the fixes and put comments
+wihtout this it would not run on macOS after i complied a file with such tools again, aka compile step 2
+then step 1 would not work anytmore, and vice versa. It should be robust now, fixes are there.
+
+step 1:
+
+When running threadSync.c, each thread waits for the semaphore before entering the critical section, ensuring sequential execution, 
+while the main thread waits for all threads to finish.
+
+Unlike threadHello.c, which allows threads to execute concurrently and print in an interleaved manner, 
+threadSync.c enforces synchronization, ensuring only one thread accesses the critical section at a time.

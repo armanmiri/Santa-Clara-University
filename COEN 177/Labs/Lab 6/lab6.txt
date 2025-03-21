@@ -1,0 +1,36 @@
+// Name: Arman Miri  
+// Date: 2/2/25
+// Title: Lab 6 - Minix operating system
+// Description: Steps to setup the lab
+
+Instructions:
+
+1. Used the find command to search for boot - related strings such as "Copyright 2010" 
+
+    find /usr/src -type f -exec grep -l "Copyright 2010" {} \;
+    
+    I found the boot message in the /usr/src/kernel/main.c file.
+
+2. Once that boot message is found in this case in the 
+    
+    /usr/src/kernel/main.c inside the announce(void) function.
+
+3. Edit the function using the vi /usr/src/kernel/main.c
+
+    Found the section where printf prints the MINIX version and copyright information.
+    
+    Added a new line below the existing printf statement:
+
+    printf("This version has been modified by [Your Name], [Year].");
+    
+    Saved the changes and exited using :wq.
+
+4. Rebuilt the system using the following commands:
+
+    cd /usr/src
+    
+    make world
+    
+    Verified that the build completed successfully.
+
+5. Use the reboot command and check the new login message
